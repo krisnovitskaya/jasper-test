@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc93967e-6da1-4ee5-9295-c5fbe691b8cb">
+<!--	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>-->
+	<style name="param">
+		<box>
+			<pen lineWidth="1.0"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{isProduct}.equals("1")]]></conditionExpression>
+			<style>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</style>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="name" class="java.lang.String"/>
+	<field name="attribute" class="java.lang.String"/>
+	<field name="isProduct" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="151" height="20" uuid="26efc64a-b255-4dc8-8dd2-d69db132d860"/>
+				<textFieldExpression><![CDATA["Predostavit:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField textAdjust="StretchHeight">
+				<reportElement key="" style="param" stretchType="ElementGroupHeight" x="10" y="0" width="260" height="20" isPrintWhenDetailOverflows="true" uuid="7bf42d3e-3b8c-4214-a798-2936b80e5b50"/>
+				<textElement>
+					<font fontName="Arial"/>
+					<paragraph spacingBefore="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{isProduct}.equals("1") ? "\n\n" + $F{name} + " na sleduyuschih usloviyah:" + "\n" : $F{name}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="param" stretchType="ContainerHeight" x="270" y="0" width="280" height="20" uuid="35631156-9839-4851-a25f-c8e5481707cc">
+					<printWhenExpression><![CDATA[!$F{isProduct}.equals("1")]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+					<paragraph spacingBefore="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{attribute} == null ? "" : $F{attribute}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
